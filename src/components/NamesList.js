@@ -2,6 +2,8 @@ import React from "react";
 import Row from "./Row";
 
 const NamesList = ({ names }) => {
+
+  console.log("inside nameslist", names)
   const rows = names.map((name, index) =>
     <Row key={index} name={name.name} amount={name.amount} />
   );
