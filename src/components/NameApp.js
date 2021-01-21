@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FilterForm from "./FilterForm";
 import NamesList from "./NamesList";
+import NameInfo from "./NameInfo";
 import namesJSON from "../data/names";
 
 const { names } = namesJSON; 
@@ -9,6 +10,8 @@ const initialSort = () =>
 
 const NameApp = () => {
   const [namesList, setNamesList] = useState(initialSort);
+  const [name, setName] = useState("");
+  const [amount, setAmount] = useState(0);
   const [filter, setFilter] = useState("");
   const namesTotal = namesList.reduce((a, c) => a + c.amount, 0);
   
@@ -27,11 +30,16 @@ const NameApp = () => {
   const sortByAmount = () =>
     setNamesList([...namesList].sort((a, b) =>
       b.amount - a.amount));
+
+  const handleInfo = (name, amount) => {
+    setName(name);
+    setAmount(amount);
+  };
         
   return (
     <div>
       <h1>Aki's name app</h1>
-      {`${namesTotal} names`}
+      {`${namesTotal} names in list`}
       <FilterForm value={filter} handleChange={handleFilter} />
       <button type="button"
         onClick={() => sortAlphabetically()}>
@@ -41,7 +49,13 @@ const NameApp = () => {
         onClick={() => sortByAmount()}>
         sort by amount
       </button>
-      <NamesList names={filterNames()} />
+      <NameInfo 
+        name={name}
+        amount={amount}
+      />
+      <NamesList
+        names={filterNames()}
+        handleClick={handleInfo} />
       {/* TODO: style list to look more tabular */}
     </div>
   );
