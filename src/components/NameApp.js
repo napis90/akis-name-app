@@ -4,20 +4,13 @@ import NamesList from "./NamesList";
 import namesJSON from "../data/names";
 
 const { names } = namesJSON; 
-
 const initialSort = () =>
   [...names].sort((a, b) => b.amount - a.amount);
 
 const NameApp = () => {
-  const [namesList, setnamesList] = useState(initialSort);
+  const [namesList, setNamesList] = useState(initialSort);
   const [filter, setFilter] = useState("");
-
-  const sortByAmount = () =>
-    setnamesList([...namesList].sort((a, b) => b.amount - a.amount));
   
-  const sortAlphabetically = () =>
-    setnamesList([...namesList].sort());
-
   const handleFilter = e => setFilter(e.target.value);
 
   const filterNames = () => 
@@ -25,14 +18,30 @@ const NameApp = () => {
       e.name
         .toLowerCase()
         .includes(filter.toLowerCase()));
+
+  const sortAlphabetically = () =>
+    setNamesList([...namesList].sort((a, b) =>
+      a.name.localeCompare(b.name)));
   
+  const sortByAmount = () =>
+    setNamesList([...namesList].sort((a, b) =>
+      b.amount - a.amount));
+        
   return (
     <div>
+      <h1>Aki's name app</h1>
+      
       <FilterForm value={filter} handleChange={handleFilter} />
-      {/* TODO: buttons for ordering nameslist */}
-      {/* TODO: turn nameslist into a table with two columns */}
+      <button type="button"
+        onClick={() => sortAlphabetically()}>
+        sort alphabetically
+      </button>
+      <button type="button"
+        onClick={() => sortByAmount()}>
+        sort by amount
+      </button>
       <NamesList names={filterNames()} />
-      {/* TODO: return No results found if namesList empty */}
+      {/* TODO: style list to look more tabular */}
     </div>
   );
 };
