@@ -10,6 +10,7 @@ const initialSort = () =>
 const NameApp = () => {
   const [namesList, setNamesList] = useState(initialSort);
   const [filter, setFilter] = useState("");
+  const namesTotal = namesList.reduce((a, c) => a + c.amount, 0);
   
   const handleFilter = e => setFilter(e.target.value);
 
@@ -30,7 +31,7 @@ const NameApp = () => {
   return (
     <div>
       <h1>Aki's name app</h1>
-      
+      {`${namesTotal} names`}
       <FilterForm value={filter} handleChange={handleFilter} />
       <button type="button"
         onClick={() => sortAlphabetically()}>
