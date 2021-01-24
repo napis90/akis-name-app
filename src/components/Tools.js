@@ -15,7 +15,7 @@ const Tools = ({
       text        = "Sort alphabetically"
       handleClick = {handleSortAlphabetically} />
     <Button
-      text        = "Sort by amount"
+      text        = "Sort by popularity"
       handleClick = {handleSortByAmount} />
   </div>;
 
