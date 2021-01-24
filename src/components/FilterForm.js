@@ -1,11 +1,14 @@
 import React from "react";
 
 const FilterForm = ({ value, handleChange }) => 
-  <div>
-    <label>
-      Filter list:
-      <input value={value} onChange={handleChange} />
+  <div className = "filter-form">
+    <label
+      htmlFor = "filter-list">
+      Filter list: 
     </label>
-  </div>
+    <input
+      value    = {value}
+      onChange = {handleChange} />
+  </div>;
 
 export default FilterForm;

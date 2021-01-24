@@ -1,19 +1,25 @@
 import React from "react";
-import NameRow from "./NameRow";
+import Name from "./Name";
 
-const NamesList = ({ names, handleClick }) => {
-  const rows = names.map((name, index) =>
-    <NameRow
-      key={index}
-      name={name.name}
-      amount={name.amount}
-      handleClick={handleClick} />
+const NamesList = ({
+  names,
+  handleClick}) => {
+
+  const rows = () => names.map((name, index) =>
+    <div
+      className = "names-list-item"
+      key = {index}>
+      <Name
+        name        = {name.name}
+        amount      = {name.amount}
+        handleClick = {handleClick} />
+    </div>
   );
 
   return(
-    <div>
+    <div className = "names-list">
       {names.length > 0
-        ? rows
+        ? <ul>{rows()}</ul>
         : "No matching names found"}
     </div>
   );

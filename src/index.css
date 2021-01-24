@@ -1,10 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
-button {
-  background-color: black;
-  color: gray;
-}  
+body {
+  font-family: 'Roboto', 'sans-serif';
+}
 
-body, input {
-  background-color: black;
-  color: gray;
+.wrapper {
+}
+
+.name-app {
+  display      : grid;
+  grid-gap     : 5px;
+  grid-template-rows: repeat(5, minmax(20px, auto));
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.header {
+  grid-column     : 1 / -1;
+  display: grid;
+  justify-items: center;
+}
+
+.tools {
+  display: grid;
+  grid-column: 2 / 7;
+  align-content: end;
+  justify-content: center;
+}
+
+.info {
+  padding-top: 50px;
+  grid-row: 2 / span 1;
+  grid-column: 7 / -2;
+
+}
+
+.names-list {
+  grid-column: 2 / -2;
+}
+
+.name {
+  display: grid;
 }
