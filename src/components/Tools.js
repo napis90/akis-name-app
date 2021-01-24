@@ -5,7 +5,7 @@ import Button from "./Button";
 const Tools = ({
   filter,
   handleFilter,
-  handleSortAlphabeticallly,
+  handleSortAlphabetically,
   handleSortByAmount }) => 
   <div className = "tools">
     <FilterForm
@@ -13,7 +13,7 @@ const Tools = ({
       handleChange = {handleFilter} />
     <Button
       text        = "Sort alphabetically"
-      handleClick = {handleSortAlphabeticallly} />
+      handleClick = {handleSortAlphabetically} />
     <Button
       text        = "Sort by amount"
       handleClick = {handleSortByAmount} />

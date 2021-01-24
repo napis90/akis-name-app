@@ -8,7 +8,7 @@ const NamesList = ({
   const rows = () => names.map((name, index) =>
     <div
       className = "names-list-item"
-      key = {index}>
+      key       = {index}>
       <Name
         name        = {name.name}
         amount      = {name.amount}

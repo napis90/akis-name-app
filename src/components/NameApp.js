@@ -40,17 +40,20 @@ const NameApp = () => {
   };
         
   return (
-    <div className = "name-app">
-      <Header namesTotal = {namesTotal} />
+    <div    className  = "name-app">
+    <Header namesTotal = {namesTotal} />
       <Info
-        name      = {name}
-        amount    = {amount} />
-      <Tools />
+        name   = {name}
+        amount = {amount} />
+      <Tools
+        filter                   = {filter}
+        handleFilter             = {handleFilter}
+        handleSortAlphabetically = {sortAlphabetically}
+        handleSortByAmount       = {sortByAmount}
+        />
       <NamesList
-        names                     = {filterNames()}
-        handleClick               = {handleInfo}
-        handleSortAlphabeticallly = {sortAlphabetically}
-        handleSortByAmount       = {sortByAmount} />
+        names       = {filterNames()}
+        handleClick = {handleInfo} />
     </div>
   );
 };
